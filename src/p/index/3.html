@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Demo Page 3</title>
+    <script src="../../c/common/rem.js" inline></script>
+    <link type="text/css" rel="stylesheet" href="./index.css" inline>
+    <style type="text/css">
+        svg{
+            width: 800px;
+            height: 1400px;
+            border: 1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1400" preserveAspectRatio="xMidYMid meet">
+        <defs> 
+            <linearGradient id='aaa' x1='0' y1='0' x2='1' y2='1'> <!-- x1 y1 x2 y2 设置了两个端点坐标 -->
+                <stop offset='0' stop-color='#f00'></stop>
+                <stop offset='0.5' stop-color='#ff0'></stop>
+                <stop offset='1' stop-color='#0ff'></stop>
+            </linearGradient>
+            <radialGradient id='bbb' cx='0.5' cy='0.5' r='0.5' fx='0.8' fy='0.2'> <!-- 渐变开始的位置 cx cy定义 渐变长度（半径）r 焦点位置fxfy-->
+                <stop offset='0' stop-color='#0f0'></stop>
+                <stop offset='0.5' stop-color='#ff0'></stop>
+                <stop offset='1' stop-color='#0ff'></stop>
+            </radialGradient>
+            <pattern id='ccc' x='0' y='0' width='0.2' height='0.2'> <!---->
+               <circle cx='10' cy='10' r='5' fill='red'></circle>
+               <polygon points='30 10 60 50 0 50' fill='green'></polygon>
+            </pattern>
+            <pattern id='ddd' x='0' y='0' width='0.25' height='0.25' patternUnits='objectBoundingBox' patternContentUnits='objectBoundingBox'> <!---->
+               <circle cx='0.1' cy='0.1' r='0.1' fill='red'></circle>
+              <!--  <polygon points='30 10 60 50 0 50' fill='green'></polygon> -->
+            </pattern>
+        </defs>
+        <rect x='50' y='10' width='200' height='100' fill='url(#aaa)'></rect>
+        <rect x='50' y='128' width='200' height='100' fill='url(#bbb)'></rect>
+        <rect x='50' y='250' width='400' height='300' fill='url(#ccc)'></rect>
+        <rect x='50' y='540' width='800' height='300' fill='url(#ddd)'></rect>
+    </svg>
+ <script type="text/javascript" src="@cdnhost/src/p/index/@version/index.js"></script>
+</body>
+</html>

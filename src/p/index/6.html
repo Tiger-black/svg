@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Demo Page 3</title>
+    <script src="../../c/common/rem.js" inline></script>
+    <link type="text/css" rel="stylesheet" href="./index.css" inline>
+    <style type="text/css">
+    html,body{
+        margin: 0;
+        padding: 0;
+    }
+    svg{
+        width: 1200px;
+        height: 1000px;
+        border: 1px solid #f00;
+        background-color: #000;
+    }
+    </style>
+</head>
+<body>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid meet">
+        <defs> 
+            <pattern id='ddd' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'> <!---->
+               <path d='M0,0H20V20' fill="none" stroke='#ccc'></path>
+            </pattern>
+        </defs>
+        <rect width='1000' height='1000' fill='url(#ddd)'></rect>
+        <text id='sintext' x='100' y='160'  style='font-size: 10px;font-family: Arial'>
+        </text>
+        <path d='M0,160H200,M100,60v200' fill="none" stroke='#f00'></path>
+    </svg>
+ <script type="text/javascript">
+    var text='abcdefghigklmnopqrstuvwxyzabcdefghigklmnopqrstuvwxyzabcdefghigklmnopqrstuv',NS='http://www.w3.org/2000/svg';
+    sintext.val='text'
+    var n=text.length,x=[],y=[],i=n,s=100,w=0.06,t=0;
+    while(i--){
+        x.push(5);
+        var tspan = document.createElementNS(NS,'tspan');
+        tspan.textContent = text[n-i-1];
+        var h= Math.round(360/text.length*i);
+        tspan.setAttribute('fill','hsl('+h+',100%,80%)')
+        sintext.appendChild(tspan);
+    }
+    function arrange(t){
+        y=[];
+        var ly=0,cy=0;
+        for(var i=0;i<n;++i){
+            cy = -s * Math.sin(w * i *20 +t)  //s * Math.sin(w * x +t)
+            y.push(cy-ly);
+            ly = cy
+        }
+    }
+    function render(){
+       sintext.setAttribute('dx',x.join(' '));
+       sintext.setAttribute('dy',y.join(' '));
+    }
+    function farme(){
+        t+=0.03;
+        arrange(t);
+        render()
+        requestAnimationFrame(farme)
+    }
+    farme()
+
+ </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Demo Page 3</title>
+    <script src="../../c/common/rem.js" inline></script>
+    <link type="text/css" rel="stylesheet" href="./index.css" inline>
+    <style type="text/css">
+    html,body{
+        margin: 0;
+        padding: 0;
+    }
+    svg{
+        width: 200px;
+        height: 200px;
+        border: 1px solid #f00;
+    }
+    </style>
+</head>
+<body>
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <ellipse rx="90" ry="90" cx="100" cy="100" stroke="#B3E5FC" fill="none" stroke-width="10"></ellipse>
+      <path id='aaaaa' fill="none" stroke="#02AFFE " stroke-width="10" d="M100,10 A90,90 0 1 1 100,10"></path>
+    </svg>
+    <svg width="64" height="64" viewBox="0 0 38 38"  stroke="#018BF2">
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(1 1)" stroke-width="2">
+                    <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+                    <path d="M36 18c0-9.94-8.06-18-18-18">
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 18 18"
+                            to="360 18 18"
+                            dur="1s"
+                            repeatCount="indefinite"/>
+                    </path>
+                </g>
+            </g>
+    </svg>
+ <script type="text/javascript">
+var i = 0;
+function aa (i){
+	var hudu = (2*Math.PI / 360) * 90 * i;
+   	var x = 100 + Math.sin(hudu) * 90;
+   	var y = 100 - Math.cos(hudu) * 90    //  注意此处是“-”号，因为我们要得到的Y是相对于（0,0）而言的。
+   	if(i<2){
+   		aaaaa.setAttribute('d','M100,10 A90,90 0 0 1 '+x+','+y);
+   	}else{
+   		aaaaa.setAttribute('d','M100,10 A90,90 0 1 1 '+x+','+y);
+   	}
+}
+setInterval(function(){
+	aa(i)
+	i+=0.01;
+	if(i>4) i=0;
+},10)
+ </script>
+</body>
+</html>
